@@ -9,7 +9,7 @@ namespace GameStore_EF_MVVM.ViewModels
 {
     internal class MainWindowViewModel : ViewModel
     {
-        #region
+        #region Title
         private string title = "Главное окно программы";
         public string Title
         {
