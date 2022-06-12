@@ -12,7 +12,6 @@
     <Folder Include="Infrostructure\Commands\" />
     <Folder Include="Infrostructure\Commands\" />
     <Folder Include="Models\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>
