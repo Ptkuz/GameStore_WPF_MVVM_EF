@@ -11,6 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using GomeStore.DAL;
+using GomeStore.DAL.Context;
 
 namespace GameStore_EF_MVVM
 {
@@ -36,7 +37,13 @@ namespace GameStore_EF_MVVM
         protected override async void OnStartup(StartupEventArgs e)
         {
             var host = Host;
-            base.OnStartup(e);
+
+            using (var scope = Services.CreateScope()) 
+            {
+                scope.ServiceProvider.GetRequiredService<DbInitializer>().InitializeAsync().Wait();
+            }
+
+                base.OnStartup(e);
             await host.StartAsync();
         }
 

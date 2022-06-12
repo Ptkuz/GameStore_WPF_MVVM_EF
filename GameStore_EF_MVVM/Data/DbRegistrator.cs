@@ -33,6 +33,7 @@ namespace GameStore_EF_MVVM.Data
                 }
             
             })
+            .AddTransient<DbInitializer>()
             ;
 
     }
