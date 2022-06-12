@@ -26,8 +26,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GomeStore.DAL\GameStore.DAL.csproj" />
+    <ProjectReference Include="..\GameStore.DAL\GameStore.DAL.csproj" />
   </ItemGroup>
+
 
   <ItemGroup>
     <None Update="appsettings.json">

@@ -10,8 +10,6 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using GomeStore.DAL;
-using GomeStore.DAL.Context;
 
 namespace GameStore_EF_MVVM
 {

@@ -1,5 +1,5 @@
-﻿using GomeStore.DAL.Context;
-using GomeStore.DAL.Entityes;
+﻿using GameStore.DAL.Entityes;
+using GameStore.DAL.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
@@ -43,6 +43,7 @@ namespace GameStore_EF_MVVM.Data
             await db.Categories.AddRangeAsync(Categories);
             await db.SaveChangesAsync();
         }
+
 
 
         private const int gamesCount = 10;

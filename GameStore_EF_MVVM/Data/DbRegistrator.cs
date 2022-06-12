@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
-using GomeStore.DAL.Context;
+using GameStore.DAL.Context;
 using Microsoft.EntityFrameworkCore;
 
 namespace GameStore_EF_MVVM.Data
