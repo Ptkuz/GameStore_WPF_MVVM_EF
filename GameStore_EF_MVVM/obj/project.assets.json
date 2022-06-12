@@ -2998,23 +2998,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ptkuz\\.nuget\\packages\\": {},
+    "C:\\Users\\evtku\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ptkuz\\source\\repos\\GameStore_EF_MVVM\\GameStore_EF_MVVM\\GameStore_EF_MVVM.csproj",
+      "projectUniqueName": "C:\\Users\\evtku\\Source\\Repos\\GameStore_WPF_MVVM_EF_v3\\GameStore_EF_MVVM\\GameStore_EF_MVVM.csproj",
       "projectName": "GameStore_EF_MVVM",
-      "projectPath": "C:\\Users\\ptkuz\\source\\repos\\GameStore_EF_MVVM\\GameStore_EF_MVVM\\GameStore_EF_MVVM.csproj",
-      "packagesPath": "C:\\Users\\ptkuz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ptkuz\\source\\repos\\GameStore_EF_MVVM\\GameStore_EF_MVVM\\obj\\",
+      "projectPath": "C:\\Users\\evtku\\Source\\Repos\\GameStore_WPF_MVVM_EF_v3\\GameStore_EF_MVVM\\GameStore_EF_MVVM.csproj",
+      "packagesPath": "C:\\Users\\evtku\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\evtku\\Source\\Repos\\GameStore_WPF_MVVM_EF_v3\\GameStore_EF_MVVM\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ptkuz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\evtku\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3082,7 +3082,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }
