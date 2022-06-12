@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace GomeStore.DAL.Entityes.Base
 {
-    internal class Entity
+    public abstract class Entity
     {
+        public int Id { get; set; }
     }
 }

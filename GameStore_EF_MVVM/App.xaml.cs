@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Hosting;
 using GameStore_EF_MVVM.ViewModels;
 using GameStore_EF_MVVM.Services;
+using GameStore_EF_MVVM.Data;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -9,6 +10,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using GomeStore.DAL;
 
 namespace GameStore_EF_MVVM
 {
@@ -17,7 +19,7 @@ namespace GameStore_EF_MVVM
     /// </summary>
     public partial class App : Application
     {
-        private static IHost host;
+        private static IHost? host;
         public static IHost Host => host 
             ??= Program.CreateHostBuilder(Environment.GetCommandLineArgs()).Build();
 
@@ -26,6 +28,7 @@ namespace GameStore_EF_MVVM
         internal static void ConfigureServices(HostBuilderContext host, IServiceCollection services) => services
             .AddServices()
             .AddViewModels()
+            .AddDatabase(host.Configuration.GetSection("Database"))
             
             ;
 

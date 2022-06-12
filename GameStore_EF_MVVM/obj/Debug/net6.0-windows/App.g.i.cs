@@ -64,7 +64,7 @@ namespace GameStore_EF_MVVM {
             
             #line default
             #line hidden
-            System.Uri resourceLocater = new System.Uri("/GameStore_EF_MVVM;V1.0.0.0;component/app.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/GameStore_EF_MVVM;component/app.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\App.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

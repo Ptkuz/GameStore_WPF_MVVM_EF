@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AAi8GKUlmD3N7yWkItV9EI4MT+fMeaFTwKraiFEpnA/4wDot/U3MK/079D7i/V7lAsavbKiZGhe/sLc30YEYPA==",
+  "dgSpecHash": "/FFtouNUNBmWBDZyfj9JfnoxNSaED4/L8qtBm0zXe7J5wNVyLcFSmDdIb+qZAMlsSkqOVE8egBJbrZsXt+yBvw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\evtku\\Source\\Repos\\GameStore_WPF_MVVM_EF_v3\\GomeStore.DAL\\GomeStore.DAL.csproj",
+  "projectFilePath": "C:\\Users\\evtku\\Source\\Repos\\GameStore_WPF_MVVM_EF_v3\\GomeStore.DAL\\GameStore.DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\evtku\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
     "C:\\Users\\evtku\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

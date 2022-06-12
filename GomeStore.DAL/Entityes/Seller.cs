@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GomeStore.DAL.Entityes.Base;
 
 namespace GomeStore.DAL.Entityes
 {
-    internal class Seller
+    public class Seller : Person
     {
+
     }
 }

@@ -1,0 +1,14 @@
+C:\Users\evtku\Source\Repos\GameStore_WPF_MVVM_EF_v3\GomeStore.DAL\bin\Debug\net6.0\GameStore.DAL.deps.json
+C:\Users\evtku\Source\Repos\GameStore_WPF_MVVM_EF_v3\GomeStore.DAL\bin\Debug\net6.0\GameStore.DAL.runtimeconfig.json
+C:\Users\evtku\Source\Repos\GameStore_WPF_MVVM_EF_v3\GomeStore.DAL\bin\Debug\net6.0\GameStore.DAL.dll
+C:\Users\evtku\Source\Repos\GameStore_WPF_MVVM_EF_v3\GomeStore.DAL\bin\Debug\net6.0\GameStore.DAL.pdb
+C:\Users\evtku\Source\Repos\GameStore_WPF_MVVM_EF_v3\GomeStore.DAL\obj\Debug\net6.0\GameStore.DAL.csproj.AssemblyReference.cache
+C:\Users\evtku\Source\Repos\GameStore_WPF_MVVM_EF_v3\GomeStore.DAL\obj\Debug\net6.0\GameStore.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\evtku\Source\Repos\GameStore_WPF_MVVM_EF_v3\GomeStore.DAL\obj\Debug\net6.0\GameStore.DAL.AssemblyInfoInputs.cache
+C:\Users\evtku\Source\Repos\GameStore_WPF_MVVM_EF_v3\GomeStore.DAL\obj\Debug\net6.0\GameStore.DAL.AssemblyInfo.cs
+C:\Users\evtku\Source\Repos\GameStore_WPF_MVVM_EF_v3\GomeStore.DAL\obj\Debug\net6.0\GameStore.DAL.csproj.CoreCompileInputs.cache
+C:\Users\evtku\Source\Repos\GameStore_WPF_MVVM_EF_v3\GomeStore.DAL\obj\Debug\net6.0\GameStore.DAL.dll
+C:\Users\evtku\Source\Repos\GameStore_WPF_MVVM_EF_v3\GomeStore.DAL\obj\Debug\net6.0\refint\GameStore.DAL.dll
+C:\Users\evtku\Source\Repos\GameStore_WPF_MVVM_EF_v3\GomeStore.DAL\obj\Debug\net6.0\GameStore.DAL.pdb
+C:\Users\evtku\Source\Repos\GameStore_WPF_MVVM_EF_v3\GomeStore.DAL\obj\Debug\net6.0\GameStore.DAL.genruntimeconfig.cache
+C:\Users\evtku\Source\Repos\GameStore_WPF_MVVM_EF_v3\GomeStore.DAL\obj\Debug\net6.0\ref\GameStore.DAL.dll

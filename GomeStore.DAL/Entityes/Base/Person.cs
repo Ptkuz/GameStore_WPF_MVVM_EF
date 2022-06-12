@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace GomeStore.DAL.Entityes.Base
 {
-    internal class Person
+    public abstract class Person : NamedEntity
     {
+        public string Surname { get; set; } = null!;
+        public string? Patronymic { get; set; }
     }
 }
