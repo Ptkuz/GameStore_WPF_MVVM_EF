@@ -1,10 +1,11 @@
 ﻿using GameStore.DAL.Context;
+using GameStore.DAL.Entityes.Base;
 using GameStore.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace GameStore.DAL
 {
-    internal class DbRepository<T> : IRepository<T> where T : class, IEntity, new()
+    internal class DbRepository<T> : IRepository<T> where T : Entity, new()
     {
         private readonly GameStoreDB db;
         private readonly DbSet<T> set;

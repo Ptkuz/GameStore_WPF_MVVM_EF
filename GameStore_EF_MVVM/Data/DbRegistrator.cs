@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using GameStore.DAL.Context;
+using GameStore.DAL;
 using Microsoft.EntityFrameworkCore;
 
 namespace GameStore_EF_MVVM.Data
@@ -34,6 +35,7 @@ namespace GameStore_EF_MVVM.Data
             
             })
             .AddTransient<DbInitializer>()
+            .AddRepositoriesInDB()
             ;
 
     }
