@@ -15,4 +15,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GamesStore.Interfaces\GameStore.Interfaces.csproj" />
+  </ItemGroup>
+
 </Project>

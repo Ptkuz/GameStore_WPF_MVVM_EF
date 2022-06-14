@@ -52,7 +52,7 @@ namespace GameStore_EF_MVVM.Data
         }
 
         private const int categoryCount = 10;
-        private Category[] Categories;
+        private Category[]? Categories;
 
         private async Task InitializeCategoriesAsync()
         {
@@ -69,7 +69,7 @@ namespace GameStore_EF_MVVM.Data
         }
 
         private const int publishersCount = 10;
-        private Publicher[] Publichers;
+        private Publicher[]? Publichers;
 
         private async Task InitializePublichersAsync()
         {
@@ -87,7 +87,7 @@ namespace GameStore_EF_MVVM.Data
 
 
         private const int developersCount = 10;
-        private Developer[] Developers;
+        private Developer[]? Developers;
 
         private async Task InitializeDevelopersAsync()
         {
@@ -113,7 +113,7 @@ namespace GameStore_EF_MVVM.Data
 
 
         private const int gamesCount = 10;
-        private Game[] Games;
+        private Game[]? Games;
 
         private async Task InitializeGamesAsync()
         {
@@ -126,7 +126,8 @@ namespace GameStore_EF_MVVM.Data
                 { 
                     ReleaseDate = Extentions.RandomDate(rnd),
                     Name = $"Игра {i}",
-                    Category = rnd.NextItem(Categories)
+                    Category = rnd.NextItem(Categories),
+                    Publicher = rnd.NextItem(Publichers)
 
                 })
                 .ToArray();
@@ -138,7 +139,7 @@ namespace GameStore_EF_MVVM.Data
         }
 
         private const int sellersCount = 10;
-        private Seller[] Sellers;
+        private Seller[]? Sellers;
 
         private async Task InitializeSellersAsync()
         {
@@ -166,7 +167,7 @@ namespace GameStore_EF_MVVM.Data
 
 
         private const int buyersCount = 10;
-        private Buyer[] Buyers;
+        private Buyer[]? Buyers;
 
         private async Task InitializeBuyersAsync()
         {
@@ -187,20 +188,21 @@ namespace GameStore_EF_MVVM.Data
                 };
 
             }
-            await db.Sellers.AddRangeAsync(Sellers);
+            await db.Buyers.AddRangeAsync(Buyers);
             await db.SaveChangesAsync();
             logger.LogInformation($"Инициализация покупателей выполнена за {0} с", timer.Elapsed.TotalSeconds);
         }
 
 
         private const int dealsCount = 1000;
-        private Deal[] Deals;
+        private Deal[]? Deals;
         private async Task InitializeDealsAsync()
         {
             var timer = Stopwatch.StartNew();
             logger.LogInformation("Инициализация сделок");
             var rnd = new Random();
 
+            Deals = new Deal[dealsCount];
             for (int i = 0; i<dealsCount; i++) 
             {
                 Deals[i] = new Deal 
