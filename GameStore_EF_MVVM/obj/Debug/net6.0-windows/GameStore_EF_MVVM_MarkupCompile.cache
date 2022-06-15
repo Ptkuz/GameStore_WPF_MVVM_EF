@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore_EF_MVVM\App.xaml
-1-834700163
+4660825284
 
-10-1716538366
-24791781919
-Views\Windows\MainWindow.xaml;
+182099040161
+247-2036350234
+Views\BuyersView.xaml;Views\Windows\GamesView.xaml;Views\Windows\MainWindow.xaml;Views\Windows\StatisticView.xaml;
 
 False
 
