@@ -78,15 +78,22 @@ namespace GameStore_EF_MVVM.ViewModels
 
         private void OnShowStatisticsViewCommandExecuted()
         {
-            CurrentModel = new StatisticViewModel(gamesRepository, buyersRepository, sellerRepository);
+            CurrentModel = new StatisticViewModel(gamesRepository, buyersRepository, sellerRepository, dealsRepository);
         }
 
         #endregion
 
-        public MainWindowViewModel(IRepository<Game> GamesRepository, IRepository<Seller> Seller, IRepository<Buyer> Buyer, ISalesService SalesService)
+        public MainWindowViewModel
+            (
+            IRepository<Game> GamesRepository, 
+            IRepository<Seller> Seller, 
+            IRepository<Buyer> Buyer, 
+            IRepository<Deal> Deal,
+            ISalesService SalesService)
         {
             gamesRepository = GamesRepository;
             salesService = SalesService;
+            dealsRepository = Deal;
 
             var deals_count_before = SalesService.Deals.Count();
 
