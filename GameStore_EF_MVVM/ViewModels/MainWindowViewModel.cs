@@ -95,7 +95,7 @@ namespace GameStore_EF_MVVM.ViewModels
             salesService = SalesService;
             dealsRepository = Deal;
 
-            var deals_count_before = SalesService.Deals.Count();
+            //var deals_count_before = SalesService.Deals.Count();
 
 
             var game = GamesRepository.Get(5);
@@ -104,7 +104,7 @@ namespace GameStore_EF_MVVM.ViewModels
 
             var deal = SalesService.MakeADeal(game.Name, seller, buyer, 2000m);
 
-            var deals_count_after = SalesService.Deals.Count();
+            //var deals_count_after = SalesService.Deals.Count();
 
 
         }

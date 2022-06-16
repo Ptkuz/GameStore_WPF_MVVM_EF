@@ -17,6 +17,6 @@ namespace GameStore.DAL.EntitiesRepositories
         }
 
         public override IQueryable<Game> Items => 
-            base.Items.Include(item => item.Category).Include(item => item.Publicher);
+            base.Items.Include(item => item.Category).Include(item => item.Developer);
     }
 }

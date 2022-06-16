@@ -22,46 +22,7 @@ namespace GameStore.DAL.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("GameStore.DAL.Entityes.Developer", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PublicherId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PublicherId");
-
-                    b.ToTable("Developers");
-                });
-
-            modelBuilder.Entity("GameStore.DAL.Entityes.Publicher", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Publichers");
-                });
-
-            modelBuilder.Entity("GomeStore.DAL.Entityes.Buyer", b =>
+            modelBuilder.Entity("GameStore.DAL.Entityes.Buyer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -85,7 +46,7 @@ namespace GameStore.DAL.Migrations
                     b.ToTable("Buyers");
                 });
 
-            modelBuilder.Entity("GomeStore.DAL.Entityes.Category", b =>
+            modelBuilder.Entity("GameStore.DAL.Entityes.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -102,7 +63,7 @@ namespace GameStore.DAL.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("GomeStore.DAL.Entityes.Deal", b =>
+            modelBuilder.Entity("GameStore.DAL.Entityes.Deal", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -136,7 +97,29 @@ namespace GameStore.DAL.Migrations
                     b.ToTable("Deals");
                 });
 
-            modelBuilder.Entity("GomeStore.DAL.Entityes.Game", b =>
+            modelBuilder.Entity("GameStore.DAL.Entityes.Developer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PublicherId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PublicherId");
+
+                    b.ToTable("Developers");
+                });
+
+            modelBuilder.Entity("GameStore.DAL.Entityes.Game", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -147,12 +130,12 @@ namespace GameStore.DAL.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<int>("DeveloperId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PublicherId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("ReleaseDate")
                         .HasColumnType("date");
@@ -161,12 +144,29 @@ namespace GameStore.DAL.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("PublicherId");
+                    b.HasIndex("DeveloperId");
 
                     b.ToTable("Games");
                 });
 
-            modelBuilder.Entity("GomeStore.DAL.Entityes.Seller", b =>
+            modelBuilder.Entity("GameStore.DAL.Entityes.Publicher", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Publichers");
+                });
+
+            modelBuilder.Entity("GameStore.DAL.Entityes.Seller", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -190,32 +190,21 @@ namespace GameStore.DAL.Migrations
                     b.ToTable("Sellers");
                 });
 
-            modelBuilder.Entity("GameStore.DAL.Entityes.Developer", b =>
+            modelBuilder.Entity("GameStore.DAL.Entityes.Deal", b =>
                 {
-                    b.HasOne("GameStore.DAL.Entityes.Publicher", "Publicher")
-                        .WithMany("Developers")
-                        .HasForeignKey("PublicherId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Publicher");
-                });
-
-            modelBuilder.Entity("GomeStore.DAL.Entityes.Deal", b =>
-                {
-                    b.HasOne("GomeStore.DAL.Entityes.Buyer", "Buyer")
+                    b.HasOne("GameStore.DAL.Entityes.Buyer", "Buyer")
                         .WithMany()
                         .HasForeignKey("BuyerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("GomeStore.DAL.Entityes.Game", "Game")
+                    b.HasOne("GameStore.DAL.Entityes.Game", "Game")
                         .WithMany()
                         .HasForeignKey("GameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("GomeStore.DAL.Entityes.Seller", "Seller")
+                    b.HasOne("GameStore.DAL.Entityes.Seller", "Seller")
                         .WithMany()
                         .HasForeignKey("SellerId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -228,33 +217,49 @@ namespace GameStore.DAL.Migrations
                     b.Navigation("Seller");
                 });
 
-            modelBuilder.Entity("GomeStore.DAL.Entityes.Game", b =>
+            modelBuilder.Entity("GameStore.DAL.Entityes.Developer", b =>
                 {
-                    b.HasOne("GomeStore.DAL.Entityes.Category", "Category")
+                    b.HasOne("GameStore.DAL.Entityes.Publicher", "Publicher")
+                        .WithMany("Developers")
+                        .HasForeignKey("PublicherId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Publicher");
+                });
+
+            modelBuilder.Entity("GameStore.DAL.Entityes.Game", b =>
+                {
+                    b.HasOne("GameStore.DAL.Entityes.Category", "Category")
                         .WithMany("Games")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("GameStore.DAL.Entityes.Publicher", "Publicher")
-                        .WithMany()
-                        .HasForeignKey("PublicherId")
+                    b.HasOne("GameStore.DAL.Entityes.Developer", "Developer")
+                        .WithMany("Games")
+                        .HasForeignKey("DeveloperId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Category");
 
-                    b.Navigation("Publicher");
+                    b.Navigation("Developer");
+                });
+
+            modelBuilder.Entity("GameStore.DAL.Entityes.Category", b =>
+                {
+                    b.Navigation("Games");
+                });
+
+            modelBuilder.Entity("GameStore.DAL.Entityes.Developer", b =>
+                {
+                    b.Navigation("Games");
                 });
 
             modelBuilder.Entity("GameStore.DAL.Entityes.Publicher", b =>
                 {
                     b.Navigation("Developers");
-                });
-
-            modelBuilder.Entity("GomeStore.DAL.Entityes.Category", b =>
-                {
-                    b.Navigation("Games");
                 });
 #pragma warning restore 612, 618
         }

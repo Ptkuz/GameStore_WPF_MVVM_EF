@@ -1,13 +1,11 @@
-﻿using GameStore.DAL.Entityes;
-using GameStore.DAL.Context;
+﻿using GameStore.DAL.Context;
+using GameStore.DAL.Entityes;
+using GameStore_EF_MVVM.Service;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Linq;
-using System.Threading.Tasks;
-using GameStore_EF_MVVM.Service;
-using System.Threading;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace GameStore_EF_MVVM.Data
 {
@@ -27,9 +25,9 @@ namespace GameStore_EF_MVVM.Data
             var timer = Stopwatch.StartNew();
             logger.LogInformation("Инициализация БД...");
 
-            //logger.LogInformation("Удаление существующей БД...");
-            //await db.Database.EnsureDeletedAsync().ConfigureAwait(false);
-            //logger.LogInformation($"Удаление выполнено за {0} мс", timer.ElapsedMilliseconds);
+            logger.LogInformation("Удаление существующей БД...");
+            await db.Database.EnsureDeletedAsync().ConfigureAwait(false);
+            logger.LogInformation($"Удаление выполнено за {0} мс", timer.ElapsedMilliseconds);
 
 
             logger.LogInformation($"Миграция БД...");
@@ -59,9 +57,9 @@ namespace GameStore_EF_MVVM.Data
             var timer = Stopwatch.StartNew();
             logger.LogInformation("Инициализация категорий");
             Categories = new Category[categoryCount];
-            for (int i = 0; i < categoryCount; i++) 
+            for (int i = 0; i < categoryCount; i++)
             {
-                Categories[i] = new Category{Name = $"Категория {i + 1}"};  
+                Categories[i] = new Category { Name = $"Категория {i + 1}" };
             }
             await db.Categories.AddRangeAsync(Categories);
             await db.SaveChangesAsync();
@@ -98,12 +96,12 @@ namespace GameStore_EF_MVVM.Data
             Developers = new Developer[developersCount];
             for (int i = 0; i < developersCount; i++)
             {
-                Developers[i] = new Developer 
-                { 
+                Developers[i] = new Developer
+                {
                     Name = $"Разработчик {i + 1}",
                     Publicher = rnd.NextItem(Publichers)
                 };
-                
+
             }
             await db.Developers.AddRangeAsync(Developers);
             await db.SaveChangesAsync();
@@ -121,16 +119,18 @@ namespace GameStore_EF_MVVM.Data
             logger.LogInformation("Инициализация игр");
             var rnd = new Random();
 
-            Games = Enumerable.Range(1, gamesCount)
-                .Select(i=> new Game 
-                { 
+            Games = new Game[gamesCount];
+            for (int i = 0; i < gamesCount; i++)
+            {
+                Games[i] = new Game
+                {
                     ReleaseDate = Extentions.RandomDate(rnd),
                     Name = $"Игра {i}",
                     Category = rnd.NextItem(Categories),
-                    Publicher = rnd.NextItem(Publichers)
+                    Developer = rnd.NextItem(Developers)
 
-                })
-                .ToArray();
+                };
+            }
 
             await db.Games.AddRangeAsync(Games);
             await db.SaveChangesAsync();
@@ -153,10 +153,10 @@ namespace GameStore_EF_MVVM.Data
                 Sellers[i] = new Seller
                 {
                     Name = $"Продавец Имя {i + 1}",
-                    Surname = $"Продавец Фамилия {i+1}",
-                    Patronymic = $"Продавец Отчество {i+1}"
+                    Surname = $"Продавец Фамилия {i + 1}",
+                    Patronymic = $"Продавец Отчество {i + 1}"
 
-                    
+
                 };
 
             }
@@ -203,9 +203,9 @@ namespace GameStore_EF_MVVM.Data
             var rnd = new Random();
 
             Deals = new Deal[dealsCount];
-            for (int i = 0; i<dealsCount; i++) 
+            for (int i = 0; i < dealsCount; i++)
             {
-                Deals[i] = new Deal 
+                Deals[i] = new Deal
                 {
                     Price = (decimal)rnd.NextDouble(100, 2000),
                     DateTime = DateTime.Now,

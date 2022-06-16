@@ -19,20 +19,6 @@ namespace GameStore_EF_MVVM.ViewModels
         private readonly IRepository<Deal> dealRepository;
 
 
-        #region Количество книг
-        private int gamesCount;
-        public int GamesCount
-        {
-            get
-            {
-                return gamesCount;
-            }
-            set
-            {
-                Set(ref gamesCount, value);
-            }
-        }
-        #endregion
 
         #region Вычислить статистические данные
         private ICommand computeStatisticCommand;
@@ -45,15 +31,19 @@ namespace GameStore_EF_MVVM.ViewModels
 
         private async Task OnComputeStatisticCommandExecutedAsync(object? obj)
         {
-            GamesCount = await gamesRepository.Items.CountAsync();
 
-            var deals = dealRepository.Items;
+            var bestsellers_query = dealRepository.Items
+                .GroupBy(b => b.Game.Id)
+                .Select(deals => new { GameId = deals.Key, Count = deals.Count() })
+                .OrderByDescending(deals => deals.Count)
+                .Take(5)
+                .Join(gamesRepository.Items,
+                deals => deals.GameId,
+                games => games.Id,
+                (deal, game) => new { Game = game, deal.Count }
+                );
 
-            var bestsellers = await deals.GroupBy(deal => deal.Game)
-                  .Select(game_deals => new { Game = game_deals.Key, Count = game_deals.Count() })
-                  .OrderByDescending(game => game.Count)
-                  .Take(5)
-                  .ToArrayAsync();
+            var bestsellers = await bestsellers_query.ToDictionaryAsync(deal => deal.Game.Name, deal => deal.Count);
 
         }
         #endregion
