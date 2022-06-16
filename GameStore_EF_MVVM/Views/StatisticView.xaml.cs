@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GameStore_EF_MVVM.Views.Windows
+namespace GameStore_EF_MVVM.Views
 {
     /// <summary>
-    /// Логика взаимодействия для GamesView.xaml
+    /// Логика взаимодействия для StatisticView.xaml
     /// </summary>
-    public partial class GamesView : UserControl
+    public partial class StatisticView : UserControl
     {
-        public GamesView()
+        public StatisticView()
         {
             InitializeComponent();
         }

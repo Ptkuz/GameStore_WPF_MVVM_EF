@@ -6,7 +6,17 @@
         xmlns:local="clr-namespace:GameStore_EF_MVVM.Views.Windows"
         DataContext="{Binding Path=MainWindowModel, Source={StaticResource ResourceKey=Locator}}"
         Title="{Binding Path=Title}" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <DockPanel>
+        <Menu IsMainMenu="True">
+            <MenuItem Header="Покупатели" Command="{Binding Path=ShowBuyersViewModel}"/>
+            <MenuItem Header="Игры" Command="{Binding Path=ShowGamesViewModel}"/>
+            <MenuItem Header="Статистика" Command="{Binding Path=ShowStatisticsViewModel}"/>
+        </Menu>
+        <StatusBar>
+            <StatusBarItem>Готово</StatusBarItem>
+        </StatusBar>
+        <Grid>
+            <ContentControl Content="{Binding Path=CurrentModel}"/>
+        </Grid>
+    </DockPanel>
 </Window>

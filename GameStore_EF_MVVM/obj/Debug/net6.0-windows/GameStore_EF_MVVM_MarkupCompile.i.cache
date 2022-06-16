@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore_EF_MVVM\App.xaml
-4660825284
+6-2103415001
 
-20892582299
+20-1786316800
 247-2036350234
-Views\BuyersView.xaml;Views\Windows\GamesView.xaml;Views\Windows\MainWindow.xaml;Views\Windows\StatisticView.xaml;
+Styles\Main.xaml;Templates\ModelMainView.xaml;Views\BuyersView.xaml;Views\GamesView.xaml;Views\StatisticView.xaml;Views\Windows\MainWindow.xaml;
 
-False
+True
 

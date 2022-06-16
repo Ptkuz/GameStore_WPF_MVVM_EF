@@ -10,27 +10,24 @@
     <Compile Update="Views\BuyersView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Windows\GamesView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\Windows\MainWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Windows\StatisticView.xaml.cs">
+    <Compile Update="Views\StatisticView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Views\BuyersView.xaml">
+    <Page Update="Styles\Main.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Windows\GamesView.xaml">
+    <Page Update="Views\BuyersView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Windows\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Windows\StatisticView.xaml">
+    <Page Update="Views\StatisticView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

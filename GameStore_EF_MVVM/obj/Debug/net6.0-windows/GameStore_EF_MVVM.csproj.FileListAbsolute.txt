@@ -183,8 +183,10 @@ C:\Users\evtku\Source\Repos\GameStore_WPF_MVVM_EF_v3\GameStore_EF_MVVM\obj\Debug
 C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore_EF_MVVM\bin\Debug\net6.0-windows\GameStore.Interfaces.dll
 C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore_EF_MVVM\bin\Debug\net6.0-windows\GameStore.Interfaces.pdb
 C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore_EF_MVVM\obj\Debug\net6.0-windows\Views\BuyersView.g.cs
-C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore_EF_MVVM\obj\Debug\net6.0-windows\Views\Windows\GamesView.g.cs
-C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore_EF_MVVM\obj\Debug\net6.0-windows\Views\Windows\StatisticView.g.cs
 C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore_EF_MVVM\obj\Debug\net6.0-windows\Views\BuyersView.baml
-C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore_EF_MVVM\obj\Debug\net6.0-windows\Views\Windows\GamesView.baml
-C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore_EF_MVVM\obj\Debug\net6.0-windows\Views\Windows\StatisticView.baml
+C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore_EF_MVVM\obj\Debug\net6.0-windows\Styles\Main.baml
+C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore_EF_MVVM\obj\Debug\net6.0-windows\Views\GamesView.g.cs
+C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore_EF_MVVM\obj\Debug\net6.0-windows\Views\StatisticView.g.cs
+C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore_EF_MVVM\obj\Debug\net6.0-windows\Views\GamesView.baml
+C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore_EF_MVVM\obj\Debug\net6.0-windows\Views\StatisticView.baml
+C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore_EF_MVVM\obj\Debug\net6.0-windows\Templates\ModelMainView.baml
