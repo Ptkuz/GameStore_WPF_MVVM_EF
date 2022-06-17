@@ -17,11 +17,7 @@ namespace GameStore_EF_MVVM.ViewModels
 
         public string TestValue { get; } = "Test Value!!!";
 
-        public GamesViewModel() 
-        {
-            if (!App.IsDesignTime) 
-                throw new InvalidOperationException("Данный конструктор не предназначен для использования вне дизайнера VisualStudio");
-        }
+        
 
         public GamesViewModel(IRepository<Game> gamesRepository)
         {

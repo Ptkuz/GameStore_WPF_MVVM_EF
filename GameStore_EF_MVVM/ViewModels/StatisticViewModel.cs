@@ -35,10 +35,6 @@ namespace GameStore_EF_MVVM.ViewModels
         {
             await ComputeDealsStatisticAsync();
 
-
-
-
-
         }
         private async Task ComputeDealsStatisticAsync()
         {

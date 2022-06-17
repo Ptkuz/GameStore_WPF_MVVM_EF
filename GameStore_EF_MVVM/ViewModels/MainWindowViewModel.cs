@@ -30,7 +30,7 @@ namespace GameStore_EF_MVVM.ViewModels
         #endregion
 
         #region Текущая дочерняя модель представления 
-        private ViewModel currentModel;
+        private ViewModel? currentModel;
         public ViewModel CurrentModel
         {
             get { return currentModel; }
