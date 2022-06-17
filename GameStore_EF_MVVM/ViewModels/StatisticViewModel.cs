@@ -1,13 +1,14 @@
 ﻿using GameStore.DAL.Entityes;
 using GameStore.Interfaces;
+using GameStore_EF_MVVM.Models;
 using MathCore.WPF.Commands;
 using MathCore.WPF.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-
 
 namespace GameStore_EF_MVVM.ViewModels
 {
@@ -18,6 +19,7 @@ namespace GameStore_EF_MVVM.ViewModels
         private readonly IRepository<Seller> sellerRepository;
         private readonly IRepository<Deal> dealRepository;
 
+        public ObservableCollection<BestSellerInfo> BestSellers { get; } = new ObservableCollection<BestSellerInfo>();
 
 
         #region Вычислить статистические данные
@@ -31,21 +33,44 @@ namespace GameStore_EF_MVVM.ViewModels
 
         private async Task OnComputeStatisticCommandExecutedAsync(object? obj)
         {
+            await ComputeDealsStatisticAsync();
 
+
+
+
+
+        }
+        private async Task ComputeDealsStatisticAsync()
+        {
             var bestsellers_query = dealRepository.Items
                 .GroupBy(b => b.Game.Id)
-                .Select(deals => new { GameId = deals.Key, Count = deals.Count() })
+                .Select(deals => new
+                {
+                    GameId = deals.Key,
+                    Count = deals.Count(),
+                    Sum = deals.Sum(d => d.Price)
+                })
                 .OrderByDescending(deals => deals.Count)
                 .Take(5)
                 .Join(gamesRepository.Items,
                 deals => deals.GameId,
                 games => games.Id,
-                (deal, game) => new { Game = game, deal.Count }
+                (deal, game) => new BestSellerInfo
+                {
+                    Game = game,
+                    Publicher = game.Developer.Publicher,
+                    SellCount = deal.Count,
+                    SumCost = deal.Sum
+                }
                 );
 
-            var bestsellers = await bestsellers_query.ToDictionaryAsync(deal => deal.Game.Name, deal => deal.Count);
 
+
+            BestSellers.Clear();
+            foreach (var bestseller in await bestsellers_query.ToArrayAsync())
+                BestSellers.Add(bestseller);
         }
+
         #endregion
 
 

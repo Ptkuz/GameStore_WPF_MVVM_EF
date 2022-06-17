@@ -18,6 +18,9 @@ namespace GameStore_EF_MVVM
     /// </summary>
     public partial class App : Application
     {
+        public static bool IsDesignTime { get; private set; } = true;
+
+
         private static IHost? host;
         public static IHost Host => host 
             ??= Program.CreateHostBuilder(Environment.GetCommandLineArgs()).Build();
@@ -34,6 +37,8 @@ namespace GameStore_EF_MVVM
 
         protected override async void OnStartup(StartupEventArgs e)
         {
+            IsDesignTime = false;
+
             var host = Host;
 
             using (var scope = Services.CreateScope()) 

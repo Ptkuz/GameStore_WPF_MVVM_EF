@@ -13,6 +13,16 @@ namespace GameStore_EF_MVVM.ViewModels
     {
         private readonly IRepository<Game> gamesRepository;
 
+        public IEnumerable<Game> Games => gamesRepository.Items;
+
+        public string TestValue { get; } = "Test Value!!!";
+
+        public GamesViewModel() 
+        {
+            if (!App.IsDesignTime) 
+                throw new InvalidOperationException("Данный конструктор не предназначен для использования вне дизайнера VisualStudio");
+        }
+
         public GamesViewModel(IRepository<Game> gamesRepository)
         {
             this.gamesRepository = gamesRepository;
