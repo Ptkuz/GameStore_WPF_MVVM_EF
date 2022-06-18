@@ -16,6 +16,7 @@
     <TabControl>
         <TabItem Header="Игры">
             <GroupBox Header="Хиты продаж">
+                
                 <DataGrid ItemsSource="{Binding Path=BestSellers}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Игра" Width="auto" Binding="{Binding Path=Game.Name}"/>
