@@ -12,6 +12,7 @@ namespace GameStore_EF_MVVM.Services
     {
         public static IServiceCollection AddServices(this IServiceCollection services) =>services
             .AddTransient<ISalesService, SalesService>()
+            .AddTransient<IUserDialog, UserDialogService>()
             ;
        
     }

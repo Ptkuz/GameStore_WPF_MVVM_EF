@@ -3,12 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  mc:Ignorable="d" 
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:l="clr-namespace:GameStore_EF_MVVM.Views"
              xmlns:vm="clr-namespace:GameStore_EF_MVVM.ViewModels"
              xmlns:cm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
              
-             d:DataContext="{d:DesignInstance {x:Type TypeName=vm:GamesViewModel}, IsDesignTimeCreatable=True}" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             
+             d:DesignHeight="450" d:DesignWidth="800"
+    d:DataContext="{d:DesignInstance vm:GamesViewModel, IsDesignTimeCreatable=True}">
+    <i:Interaction.Triggers>
+
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding Path=LoadDataCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -26,7 +34,13 @@
             </GroupBox.Resources>-->
             <DockPanel>
                 <TextBox DockPanel.Dock="Top" Text="{Binding Path=GamesFilter, UpdateSourceTrigger=PropertyChanged}"/>
-                <DataGrid ItemsSource="{Binding Path=GamesView}">
+                <UniformGrid DockPanel.Dock="Bottom" Rows="1" Margin="5">
+                    <Button Content="Добавить" Margin="5" Padding="5" Command="{Binding Path=AddNewGameCommand}"/>
+                    <Button Content="Удалить" Margin="5" Padding="5" 
+                            Command="{Binding Path=RemoveGameCommand}" 
+                            CommandParameter="{Binding Path=SelectedGame}"/>
+                </UniformGrid>
+                <DataGrid ItemsSource="{Binding Path=GamesView}" SelectedItem="{Binding Path=SelectedGame}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Название" Binding="{Binding Path=Name}"/>
                         <DataGridTextColumn Header="Разработчик" Binding="{Binding Path=Developer.Name}"/>

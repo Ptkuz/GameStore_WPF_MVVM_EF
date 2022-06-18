@@ -19,6 +19,7 @@ namespace GameStore_EF_MVVM.ViewModels
         private readonly IRepository<Deal> dealsRepository;
         private readonly IRepository<Category> categoryRepository;
         private readonly ISalesService salesService;
+        private readonly IUserDialog userDialog;
 
         #region Заголовок главного окна
         private string title = "Главное окно программы";
@@ -48,7 +49,7 @@ namespace GameStore_EF_MVVM.ViewModels
 
         private void OnShowGamesViewCommandExecuted(object? obj)
         {
-            CurrentModel = new GamesViewModel(gamesRepository);
+            CurrentModel = new GamesViewModel(gamesRepository, userDialog);
         }
 
         #endregion
@@ -89,11 +90,13 @@ namespace GameStore_EF_MVVM.ViewModels
             IRepository<Seller> Seller, 
             IRepository<Buyer> Buyer, 
             IRepository<Deal> Deal,
-            ISalesService SalesService)
+            ISalesService SalesService,
+            IUserDialog userDialog)
         {
             gamesRepository = GamesRepository;
             salesService = SalesService;
             dealsRepository = Deal;
+            this.userDialog = userDialog;
 
             //var deals_count_before = SalesService.Deals.Count();
 
