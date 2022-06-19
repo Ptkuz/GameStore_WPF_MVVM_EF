@@ -11,15 +11,10 @@ namespace GameStore_EF_MVVM.ViewModels
 {
     internal class GamesEditorWindowViewModel : ViewModel
     {
-        private readonly IRepository<Game> gamesRepository;
-        private readonly IRepository<Buyer> buyersRepository;
-        private readonly IRepository<Seller> sellerRepository;
-        private readonly IRepository<Deal> dealRepository;
-
 
         #region ID книги
-        private string gameId;
-        public string GameId { get => gameId; set => Set(ref gameId, value); }
+        private int gameId;
+        public int GameId { get; }
         #endregion
 
         #region Название игры
@@ -27,38 +22,15 @@ namespace GameStore_EF_MVVM.ViewModels
         public string Name { get => name; set => Set(ref name, value); }
         #endregion
 
-        #region Список жанров
+        public GamesEditorWindowViewModel(Game game)
+        {
+            GameId = game.Id;
+            Name = game.Name;
+        }
         
-        public IRepository<Game> Categories 
-        { 
-            get => categories; 
-            set => Set(ref categories, value);
-        }
-        #endregion
-
-        #region Список разработчиков
-        private IEnumerable<Category> developers;
-        public IEnumerable<Category> Developers
-        {
-            get => developers;
-            set => Set(ref developers, value);
-        }
-        #endregion
 
 
-        public GamesEditorWindowViewModel
-           (
-           IRepository<Game> gamesRepository,
-           IRepository<Buyer> buyersRepository,
-           IRepository<Seller> sellerRepository,
-           IRepository<Deal> dealRepository
-           )
-        {
-            this.gamesRepository = gamesRepository;
-            this.buyersRepository = buyersRepository;
-            this.sellerRepository = sellerRepository;
-            this.dealRepository = dealRepository;
-        }
+
     }
 
 }

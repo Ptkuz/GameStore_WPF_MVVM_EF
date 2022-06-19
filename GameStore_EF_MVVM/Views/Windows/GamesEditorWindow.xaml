@@ -8,17 +8,20 @@
          
         Title="GamesEditorWindow" Height="189" Width="403"
         d:DataContext="{d:DesignInstance vm:GamesEditorWindowViewModel, IsDesignTimeCreatable=True}">
-        
+
     <DockPanel>
-        <TextBlock Text="Игра" HorizontalAlignment="Center" DockPanel.Dock="Top"/>
+        <TextBlock Text="{Binding Path=GameId, StringFormat=Игра ID:{0}}" HorizontalAlignment="Center" DockPanel.Dock="Top"/>
         <UniformGrid Rows="1" DockPanel.Dock="Bottom" >
-            <Button Content="OK" FontWeight="Bold" IsDefault="True"/>
-            <Button Content="Отмена"/>
+            <Button Content="OK" FontWeight="Bold" IsDefault="True" Command="{StaticResource ResourceKey=DialogResultCommand}"
+                    CommandParameter="true"/>
+            <Button Content="Отмена" Command="{StaticResource ResourceKey=DialogResultCommand}"
+                    CommandParameter="false"/>
         </UniformGrid>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition  Width="Auto"/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="101*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -27,17 +30,17 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Column="0" Grid.Row="0" Text="Название"/>
-            <TextBox Grid.Column="1" Grid.Row="0" Text="Название" Margin="10,0,10,10"/>
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="Название" Grid.ColumnSpan="2" Margin="0,0,134,28" Grid.RowSpan="2"/>
+            <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Name}" Margin="10,0,10,10" Grid.ColumnSpan="2"/>
 
-            <TextBlock Grid.Column="0" Grid.Row="1" Text="Дата релиза"/>
-            <TextBox Grid.Column="1" Grid.Row="1" Text="Дата релиза" Margin="10,0,10,10"/>
+            <TextBlock Grid.Column="0" Grid.Row="1" Text="Дата релиза" Grid.ColumnSpan="2" Margin="0,0,134,0" Grid.RowSpan="3"/>
+            <TextBox Grid.Column="1" Grid.Row="1" Text="Дата релиза" Margin="10,0,10,10" Grid.ColumnSpan="2"/>
 
-            <TextBlock Grid.Column="0" Grid.Row="2" Text="Жанр"/>
+            <!--<TextBlock Grid.Column="0" Grid.Row="2" Text="Жанр"/>
             <ComboBox Grid.Column="1" Grid.Row="2" Margin="10,0,10,10" ItemsSource="{Binding Path=Categories}"/>
 
             <TextBlock Grid.Column="0" Grid.Row="3" Text="Разработчик"/>
-            <ComboBox Grid.Column="1" Grid.Row="3" Margin="10,0,10,10"/>
+            <ComboBox Grid.Column="1" Grid.Row="3" Margin="10,0,10,10"/>-->
         </Grid>
     </DockPanel>
 </Window>

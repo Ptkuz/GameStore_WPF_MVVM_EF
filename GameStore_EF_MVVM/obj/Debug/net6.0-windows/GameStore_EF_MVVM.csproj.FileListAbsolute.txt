@@ -192,3 +192,4 @@ C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore_EF_MVVM\obj\Debug
 C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore_EF_MVVM\obj\Debug\net6.0-windows\Templates\ModelMainView.baml
 C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore_EF_MVVM\obj\Debug\net6.0-windows\Views\Windows\GamesEditorWindow.g.cs
 C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore_EF_MVVM\obj\Debug\net6.0-windows\Views\Windows\GamesEditorWindow.baml
+C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore_EF_MVVM\obj\Debug\net6.0-windows\Infrostructure\Commands\AppCommands.baml

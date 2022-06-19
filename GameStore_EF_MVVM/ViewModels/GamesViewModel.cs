@@ -92,9 +92,10 @@ namespace GameStore_EF_MVVM.ViewModels
         private void OnAddNewCommandExecuted(object? obj)
         {
             var game = new Game();
-            if (userDialog.Edit(game)) return;
-            gamesRepository.Add(game);
+            if (!userDialog.Edit(game)) return;
             Games.Add(gamesRepository.Add(game));
+
+            SelectedGame = game;
 
 
 

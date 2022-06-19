@@ -21,6 +21,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Infrostructure\Commands\AppCommands.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Styles\Main.xaml">
       <SubType>Designer</SubType>
     </Page>

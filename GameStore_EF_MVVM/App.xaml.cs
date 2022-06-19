@@ -18,6 +18,17 @@ namespace GameStore_EF_MVVM
     /// </summary>
     public partial class App : Application
     {
+
+        public static Window ActiveWindow =>
+            Current.Windows.OfType<Window>()
+            .FirstOrDefault(w => w.IsActive);
+
+        public static Window FocusedWindow =>
+           Current.Windows.OfType<Window>()
+           .FirstOrDefault(w => w.IsFocused);
+
+        public static Window CurrentWindow => FocusedWindow ?? ActiveWindow;
+
         public static bool IsDesignTime { get; private set; } = true;
 
 
