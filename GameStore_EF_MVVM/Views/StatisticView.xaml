@@ -31,7 +31,7 @@
 
             </GroupBox>
         </TabItem>
-        <TabItem Header="Жанры">
+        <!--<TabItem Header="Жанры">
 
         </TabItem>
         <TabItem Header="Разработчики">
@@ -45,6 +45,6 @@
         </TabItem>
         <TabItem Header="Продавцы">
 
-        </TabItem>
+        </TabItem>-->
     </TabControl>
 </UserControl>

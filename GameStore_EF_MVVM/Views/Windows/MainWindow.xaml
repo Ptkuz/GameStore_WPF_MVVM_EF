@@ -14,7 +14,7 @@
     </i:Interaction.Triggers>
             <DockPanel>
         <Menu IsMainMenu="True">
-            <MenuItem Header="Покупатели" Command="{Binding Path=ShowBuyersViewModel}"/>
+            <!--<MenuItem Header="Покупатели" Command="{Binding Path=ShowBuyersViewModel}"/>-->
             <MenuItem Header="Игры" Command="{Binding Path=ShowGamesViewModel}"/>
             <MenuItem Header="Статистика" Command="{Binding Path=ShowStatisticsViewModel}"/>
         </Menu>

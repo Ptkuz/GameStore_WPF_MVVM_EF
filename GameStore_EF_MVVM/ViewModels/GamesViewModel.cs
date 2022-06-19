@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Data;
-using System.Windows.Input;
-using GameStore.DAL.Entityes;
+﻿using GameStore.DAL.Entityes;
 using GameStore.Interfaces;
 using GameStore_EF_MVVM.Services.Interfaces;
 using MathCore.WPF.Commands;
 using MathCore.WPF.ViewModels;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Threading.Tasks;
+using System.Windows.Data;
+using System.Windows.Input;
 
 namespace GameStore_EF_MVVM.ViewModels
 {
@@ -28,15 +24,15 @@ namespace GameStore_EF_MVVM.ViewModels
 
         #region Фильтруищее выражение
         private string gamesFilter;
-        public string GamesFilter 
-        { 
-            get 
-            { 
-                return gamesFilter; 
-            }
-            set 
+        public string GamesFilter
+        {
+            get
             {
-                if (Set(ref gamesFilter, value)) 
+                return gamesFilter;
+            }
+            set
+            {
+                if (Set(ref gamesFilter, value))
                     GamesViewSource.View.Refresh();
             }
         }
@@ -44,9 +40,10 @@ namespace GameStore_EF_MVVM.ViewModels
 
         #region Коллекция книг
         private ObservableCollection<Game> games;
-        public ObservableCollection<Game> Games { 
+        public ObservableCollection<Game> Games
+        {
             get => games;
-            set 
+            set
             {
 
                 if (Set(ref games, value))
@@ -60,7 +57,7 @@ namespace GameStore_EF_MVVM.ViewModels
 
         #region Выбранная игра
         private Game selectedGame;
-        public Game SelectedGame 
+        public Game SelectedGame
         {
             get => selectedGame;
             set => Set(ref selectedGame, value);
@@ -79,7 +76,7 @@ namespace GameStore_EF_MVVM.ViewModels
         private async Task OnLoadDataCommandExecutedAsync(object? obj)
         {
             Games = (await gamesRepository.Items.ToArrayAsync()).ToObservableCollection();
-            
+
         }
         #endregion
 
@@ -89,7 +86,7 @@ namespace GameStore_EF_MVVM.ViewModels
             ??= new LambdaCommand(OnAddNewCommandExecuted, CanAddNewCommandExecuted);
 
         private bool CanAddNewCommandExecuted(object? arg) => true;
-        
+
 
         private void OnAddNewCommandExecuted(object? obj)
         {
@@ -112,11 +109,17 @@ namespace GameStore_EF_MVVM.ViewModels
             ??= new LambdaCommand<Game>(OnRemoveCommandExecuted, CanRemoveCommandExecuted);
 
         private bool CanRemoveCommandExecuted(Game game) => game != null || SelectedGame != null;
-       
+
 
         private void OnRemoveCommandExecuted(Game game)
         {
             var game_to_remove = game ?? SelectedGame;
+            if (!userDialog.ConfirmWarning($"Вы хотите удалить игру {game_to_remove.Name}?", "Внимание"))
+                return;
+            gamesRepository.Remove(game_to_remove.Id);
+            Games.Remove(game_to_remove);
+            if (ReferenceEquals(SelectedGame, game_to_remove))
+                SelectedGame = null;
         }
 
         #endregion
@@ -124,7 +127,7 @@ namespace GameStore_EF_MVVM.ViewModels
         public ICollectionView GamesView { get { return GamesViewSource.View; } }
 
         public GamesViewModel(
-            IRepository<Game> gamesRepository, 
+            IRepository<Game> gamesRepository,
             IRepository<Category> categoriesRepository,
             IRepository<Developer> developersRepository,
             IUserDialog userDialog)
@@ -134,13 +137,13 @@ namespace GameStore_EF_MVVM.ViewModels
             this.developersRepository = developersRepository;
             this.userDialog = userDialog;
             GamesViewSource = new CollectionViewSource()
-            {                
+            {
                 SortDescriptions =
                 {
                     new SortDescription(nameof(Game.Name), ListSortDirection.Ascending)
                 }
-                
-            
+
+
             };
             GamesViewSource.Filter += OnGamesFilter;
         }
@@ -151,7 +154,7 @@ namespace GameStore_EF_MVVM.ViewModels
 
             if (!game.Name.Contains(GamesFilter) &&
                 !game.Developer.Name.Contains(GamesFilter) &&
-                !game.ReleaseDate.ToString().Contains(GamesFilter)) 
+                !game.ReleaseDate.ToString().Contains(GamesFilter))
             {
                 e.Accepted = false;
             }

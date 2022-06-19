@@ -64,7 +64,11 @@ namespace GameStore.DAL
 
         public void Remove(int id)
         {
-            db.Remove(new T { Id = id});
+            var item = set.Local.FirstOrDefault(i => i.Id == id) 
+                ?? new T { Id = id};
+
+            
+            db.Remove(item);
             if (AutoSaveChanges)
                 db.SaveChanges();
         }

@@ -1,22 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GameStore.DAL.Entityes;
+using GameStore.Interfaces;
 using GameStore_EF_MVVM.Services.Interfaces;
-using GameStore.DAL.Entityes;
 using GameStore_EF_MVVM.ViewModels;
 using GameStore_EF_MVVM.Views.Windows;
-using GameStore.Interfaces;
+using System.Windows;
 
 namespace GameStore_EF_MVVM.Services
 {
     internal class UserDialogService : IUserDialog
     {
-        public bool Edit(           
-            IRepository<Category> categoriesRepository, 
+
+
+        public bool Edit(
+            IRepository<Category> categoriesRepository,
             IRepository<Developer> developersRepository,
-            Game game) 
+            Game game)
         {
             var game_editor_model = new GamesEditorWindowViewModel(categoriesRepository, developersRepository, game);
             var game_editor_window = new GamesEditorWindow()
@@ -33,5 +31,15 @@ namespace GameStore_EF_MVVM.Services
 
             return true;
         }
+
+        public bool ConfirmInformation(string information, string caption) =>
+            MessageBox.Show(information, caption, MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes;
+
+        public bool ConfirmWarning(string information, string caption) =>
+            MessageBox.Show(information, caption, MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes;
+
+        public bool ConfirmError(string information, string caption) =>
+            MessageBox.Show(information, caption, MessageBoxButton.YesNo, MessageBoxImage.Error) == MessageBoxResult.Yes;
+
     }
 }

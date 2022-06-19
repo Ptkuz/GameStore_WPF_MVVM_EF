@@ -11,5 +11,8 @@ namespace GameStore_EF_MVVM.Services.Interfaces
     internal interface IUserDialog
     {
         bool Edit(IRepository<Category> categoryRepository, IRepository<Developer> developerRepository, Game game);
+        bool ConfirmInformation(string information, string caption);
+        bool ConfirmWarning(string information, string caption);
+        bool ConfirmError(string information, string caption);
     }
 }
