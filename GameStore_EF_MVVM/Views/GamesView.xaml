@@ -23,15 +23,6 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <GroupBox Header="Игры">
-            <!--<GroupBox.Resources>
-                <CollectionViewSource x:Key="GamesView" Source="{Binding Path=Games}">
-                    <CollectionViewSource.SortDescriptions>
-                        <cm:SortDescription PropertyName="Developer.Name"/>
-                        <cm:SortDescription PropertyName="ReleaseDate"/>
-                    </CollectionViewSource.SortDescriptions>
-
-                </CollectionViewSource>
-            </GroupBox.Resources>-->
             <DockPanel>
                 <TextBox DockPanel.Dock="Top" Text="{Binding Path=GamesFilter, UpdateSourceTrigger=PropertyChanged}"/>
                 <UniformGrid DockPanel.Dock="Bottom" Rows="1" Margin="5">

@@ -25,9 +25,9 @@ namespace GameStore_EF_MVVM.Data
             var timer = Stopwatch.StartNew();
             logger.LogInformation("Инициализация БД...");
 
-            logger.LogInformation("Удаление существующей БД...");
-            await db.Database.EnsureDeletedAsync().ConfigureAwait(false);
-            logger.LogInformation($"Удаление выполнено за {0} мс", timer.ElapsedMilliseconds);
+            //logger.LogInformation("Удаление существующей БД...");
+            //await db.Database.EnsureDeletedAsync().ConfigureAwait(false);
+            //logger.LogInformation($"Удаление выполнено за {0} мс", timer.ElapsedMilliseconds);
 
 
             logger.LogInformation($"Миграция БД...");

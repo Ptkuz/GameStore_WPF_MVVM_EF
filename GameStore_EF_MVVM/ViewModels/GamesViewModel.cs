@@ -19,6 +19,8 @@ namespace GameStore_EF_MVVM.ViewModels
     internal class GamesViewModel : ViewModel
     {
         private readonly IRepository<Game> gamesRepository;
+        private readonly IRepository<Category> categoriesRepository;
+        private readonly IRepository<Developer> developersRepository;
         private readonly IUserDialog userDialog;
         private CollectionViewSource GamesViewSource;
 
@@ -92,7 +94,7 @@ namespace GameStore_EF_MVVM.ViewModels
         private void OnAddNewCommandExecuted(object? obj)
         {
             var game = new Game();
-            if (!userDialog.Edit(game)) return;
+            if (!userDialog.Edit(categoriesRepository, developersRepository, game)) return;
             Games.Add(gamesRepository.Add(game));
 
             SelectedGame = game;
@@ -121,9 +123,15 @@ namespace GameStore_EF_MVVM.ViewModels
 
         public ICollectionView GamesView { get { return GamesViewSource.View; } }
 
-        public GamesViewModel(IRepository<Game> gamesRepository, IUserDialog userDialog)
+        public GamesViewModel(
+            IRepository<Game> gamesRepository, 
+            IRepository<Category> categoriesRepository,
+            IRepository<Developer> developersRepository,
+            IUserDialog userDialog)
         {
             this.gamesRepository = gamesRepository;
+            this.categoriesRepository = categoriesRepository;
+            this.developersRepository = developersRepository;
             this.userDialog = userDialog;
             GamesViewSource = new CollectionViewSource()
             {                

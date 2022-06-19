@@ -16,7 +16,7 @@ namespace GameStore_EF_MVVM.Data
         public static IServiceCollection AddDatabase(this IServiceCollection services, IConfiguration Configuration) => services
             .AddDbContext<GameStoreDB>(opt => 
             {
-                string type = Configuration["Type"];
+                string type = Configuration["Type"];              
                 switch (type) 
                 {
                     case null:
@@ -32,6 +32,7 @@ namespace GameStore_EF_MVVM.Data
                         throw new InvalidOperationException($"Тип подключения {type} не поддерживается");
                        
                 }
+                
             
             })
             .AddTransient<DbInitializer>()

@@ -17,7 +17,7 @@ namespace GameStore_EF_MVVM.ViewModels
         private readonly IRepository<Developer> developersRepository;
         private readonly IRepository<Publicher> publishersReposirory;
         private readonly IRepository<Deal> dealsRepository;
-        private readonly IRepository<Category> categoryRepository;
+        private readonly IRepository<Category> categoriesRepository;
         private readonly ISalesService salesService;
         private readonly IUserDialog userDialog;
 
@@ -49,7 +49,7 @@ namespace GameStore_EF_MVVM.ViewModels
 
         private void OnShowGamesViewCommandExecuted(object? obj)
         {
-            CurrentModel = new GamesViewModel(gamesRepository, userDialog);
+            CurrentModel = new GamesViewModel(gamesRepository, categoriesRepository, developersRepository, userDialog);
         }
 
         #endregion
@@ -87,6 +87,8 @@ namespace GameStore_EF_MVVM.ViewModels
         public MainWindowViewModel
             (
             IRepository<Game> GamesRepository, 
+            IRepository<Category> CategoriesRepository,
+            IRepository<Developer> DevelopersRepository,
             IRepository<Seller> Seller, 
             IRepository<Buyer> Buyer, 
             IRepository<Deal> Deal,
@@ -94,6 +96,8 @@ namespace GameStore_EF_MVVM.ViewModels
             IUserDialog userDialog)
         {
             gamesRepository = GamesRepository;
+            categoriesRepository = CategoriesRepository;
+            developersRepository = DevelopersRepository;
             salesService = SalesService;
             dealsRepository = Deal;
             this.userDialog = userDialog;
