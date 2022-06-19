@@ -126,6 +126,8 @@ namespace GameStore_EF_MVVM.ViewModels
 
         public ICollectionView GamesView { get { return GamesViewSource.View; } }
 
+        public GamesViewModel() { }
+
         public GamesViewModel(
             IRepository<Game> gamesRepository,
             IRepository<Category> categoriesRepository,

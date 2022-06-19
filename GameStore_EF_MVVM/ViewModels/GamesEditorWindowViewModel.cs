@@ -131,6 +131,8 @@ namespace GameStore_EF_MVVM.ViewModels
         }
         #endregion
 
+        public GamesEditorWindowViewModel() { }
+
         public GamesEditorWindowViewModel(
             IRepository<Category> categoriesRepository,
             IRepository<Developer> developersRepository,
