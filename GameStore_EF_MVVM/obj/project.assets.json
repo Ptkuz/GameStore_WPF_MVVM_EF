@@ -2546,6 +2546,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "GameStore.Interfaces": "1.0.0",
           "Microsoft.EntityFrameworkCore.Proxies": "6.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.5"
         },
@@ -2554,6 +2555,16 @@
         },
         "runtime": {
           "bin/placeholder/GameStore.DAL.dll": {}
+        }
+      },
+      "GameStore.Interfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/GameStore.Interfaces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GameStore.Interfaces.dll": {}
         }
       }
     }
@@ -8267,6 +8278,11 @@
       "type": "project",
       "path": "../GameStore.DAL/GameStore.DAL.csproj",
       "msbuildProject": "../GameStore.DAL/GameStore.DAL.csproj"
+    },
+    "GameStore.Interfaces/1.0.0": {
+      "type": "project",
+      "path": "../GamesStore.Interfaces/GameStore.Interfaces.csproj",
+      "msbuildProject": "../GamesStore.Interfaces/GameStore.Interfaces.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -8368,7 +8384,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

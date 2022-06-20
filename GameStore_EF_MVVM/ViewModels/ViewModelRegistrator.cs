@@ -10,7 +10,7 @@ namespace GameStore_EF_MVVM.ViewModels
     internal static class ViewModelRegistrator
     {
         public static IServiceCollection AddViewModels(this IServiceCollection services) => services
-            .AddSingleton<MainWindowViewModel>()
+            .AddTransient<MainWindowViewModel>()
             ;
 
     }

@@ -7,12 +7,36 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\BuyersView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Windows\GamesEditorWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Windows\MainWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\StatisticView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Infrostructure\Commands\AppCommands.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Main.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\BuyersView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Windows\GamesEditorWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Windows\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\StatisticView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

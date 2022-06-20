@@ -9,12 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Infrostructure\Commands\" />
-    <Folder Include="Infrostructure\Commands\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="MathCore.WPF" Version="0.0.34.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.5" />

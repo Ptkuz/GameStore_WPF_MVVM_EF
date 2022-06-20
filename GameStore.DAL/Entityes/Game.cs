@@ -15,7 +15,7 @@ namespace GameStore.DAL.Entityes
         [Column(TypeName = "date")]
         public DateTime ReleaseDate { get; set; }
         public virtual Category Category { get; set; } = null!;
-        public virtual Publicher Publicher { get; set; } = null!;
+        public virtual Developer Developer { get; set; } = null!;
 
     }
 }

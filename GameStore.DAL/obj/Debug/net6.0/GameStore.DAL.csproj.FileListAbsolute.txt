@@ -26,3 +26,6 @@ C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore.DAL\bin\Debug\net
 C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore.DAL\bin\Debug\net6.0\GameStore.DAL.pdb
 C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore.DAL\obj\Debug\net6.0\GameStore.DAL.genruntimeconfig.cache
 C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore.DAL\obj\Debug\net6.0\ref\GameStore.DAL.dll
+C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore.DAL\bin\Debug\net6.0\GameStore.Interfaces.dll
+C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore.DAL\bin\Debug\net6.0\GameStore.Interfaces.pdb
+C:\Users\evtku\source\repos\GameStore_WPF_MVVM_EF_v3\GameStore.DAL\obj\Debug\net6.0\GameStore.DAL.csproj.CopyComplete

@@ -1959,6 +1959,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
         }
+      },
+      "GameStore.Interfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/GameStore.Interfaces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GameStore.Interfaces.dll": {}
+        }
       }
     }
   },
@@ -6802,10 +6812,16 @@
         "system.xml.xmldocument.4.3.0.nupkg.sha512",
         "system.xml.xmldocument.nuspec"
       ]
+    },
+    "GameStore.Interfaces/1.0.0": {
+      "type": "project",
+      "path": "../GamesStore.Interfaces/GameStore.Interfaces.csproj",
+      "msbuildProject": "../GamesStore.Interfaces/GameStore.Interfaces.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "GameStore.Interfaces >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Proxies >= 6.0.5",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.5",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.5"
@@ -6842,7 +6858,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\evtku\\source\\repos\\GameStore_WPF_MVVM_EF_v3\\GamesStore.Interfaces\\GameStore.Interfaces.csproj": {
+              "projectPath": "C:\\Users\\evtku\\source\\repos\\GameStore_WPF_MVVM_EF_v3\\GamesStore.Interfaces\\GameStore.Interfaces.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -6885,7 +6905,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }
